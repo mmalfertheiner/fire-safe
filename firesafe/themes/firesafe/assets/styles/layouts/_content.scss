@@ -1,0 +1,43 @@
+.content {
+
+    @include display(flex);
+    @include flex-flow(column nowrap);
+
+
+    background-color: blue;
+    min-height: 200px;
+    width: 100%;
+
+    &--framed {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    &--centered {
+        @include align-items(center);
+    }
+
+}
+
+.content-box {
+
+    margin-bottom: 20px;
+
+}
+
+.content-form {
+
+    @include display(flex);
+    @include flex-flow(column nowrap);
+
+    &__item {
+
+        flex: 1;
+
+        @include screens-phone-down{
+            flex: 0 0 100%;
+        }
+
+    }
+
+}

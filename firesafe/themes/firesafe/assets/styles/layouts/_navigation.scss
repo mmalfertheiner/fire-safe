@@ -1,0 +1,245 @@
+.navigation {
+
+    @include display(flex);
+    @include flex-direction(column);
+
+    margin-left: 40px;
+    margin-right: 40px;
+
+    margin-bottom: 10px;
+
+    @include screens-phone-only {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    /* Navigation Bar - Phone Screen Sizes */
+    &__bar {
+        @include display(none);
+
+        @include flex-direction(row);
+        @include align-items(flex-start);
+
+        padding-top: 11px;
+        padding-bottom: 3px;
+        padding-left: 11px;
+        padding-right: 11px;
+
+        @include screens-phone-only {
+            @include display(flex);
+        }
+    }
+
+    &__brand {
+        @include flex-grow(1);
+    }
+
+    &__brand-logo {
+        width: 83px;
+        height: 37px;
+    }
+
+    &__menu {
+        @include flex-grow(1);
+
+        @include display(flex);
+        @include flex-direction(row);
+        @include justify-content(flex-end);
+    }
+
+    &__menu-icon {
+        @include display(block);
+
+        padding: 5px 10px;
+        border: 1px solid $navigation-menu-border-color;
+        background-color: $navigation-menu-background-color;
+
+        & > span {
+            @include display(block);
+
+            background-color: $navigation-menu-lines-color;
+
+            height: 2px;
+            width: 22px;
+            margin-top: 4px;
+            margin-bottom: 4px;
+        }
+
+        &:hover {
+            background-color: $navigation-menu-background-color-hover;
+        }
+
+        &:hover > span {
+            background-color: $navigation-menu-lines-color-hover;
+        }
+
+    }
+
+    /* Navigation Content */
+    &__content {
+        @include display(flex);
+        @include flex-direction(row);
+
+        background-color: $navigation-content-background-color;
+
+        @include screens-phone-only {
+            @include display(none);
+
+            background-color: $navigation-content-background-color-mobile;
+            padding: 10px 0;
+
+            &--open {
+                @include display(flex);
+                @include flex-direction(column);
+            }
+        }
+    }
+
+    &__content-left {
+        @include flex-grow(1);
+
+        @include display(flex);
+        @include flex-direction(row);
+        @include justify-content(flex-start);
+        
+        @include screens-phone-only {
+            @include flex-direction(column);
+            @include justify-content(flex-start);
+        }
+    }
+
+    &__content-right {
+        @include flex-grow(1);
+
+        @include display(flex);
+        @include flex-direction(row);
+        @include justify-content(flex-end);
+
+        @include screens-phone-only {
+            @include flex-direction(column);
+            @include justify-content(flex-start);
+        }
+    }
+
+    /* Navigation Items - Links and Lists */
+    &__list {
+        @include display(block);
+        position: relative;
+    }
+
+    &__link {
+        @include display(block);
+
+        font-size: 0.95em;
+    }
+
+    &__list-link {
+        @include display(block);
+
+        font-size: 0.75em;
+    }
+
+    &__link,
+    &__list-link {
+        text-decoration: none;
+
+        padding: 14px 15px;
+
+        @include screens-tablet-up {
+            color: $navigation-link-color;
+
+            margin-top: 5px;
+        }
+
+        @include screens-phone-only {
+            color: $navigation-link-color-mobile;
+
+            margin-left: 5px;
+        }
+    }
+
+    &__link:hover,
+    &__link--current,
+    &__list:hover > &__list-link,
+    &__list--open > &__list-link {
+        @include screens-tablet-up {
+            color: $navigation-link-color-hover;
+            background-color: $navigation-link-background-color-hover;
+
+            border-top: 5px solid $navigation-link-border-color;
+            margin-top: 0px;
+        }
+
+        @include screens-phone-only {
+            color: $navigation-link-color-hover-mobile;
+            background-color: $navigation-link-background-color-hover-mobile;
+            
+            border-left: 5px solid $navigation-link-border-color-mobile;
+            margin-left: 0px;
+        }
+    }
+
+    &__list-area {
+        @include display(none);
+
+        @include screens-tablet-up {
+            background-color: $navigation-list-background-color;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176);
+            font-size: 1em;
+
+            position: absolute;
+            top: 100%;
+            right: 0;
+            float: left;
+            padding: 5px 0;
+            margin: 0 0;
+            min-width: 160px;
+        }
+
+        @include screens-phone-only {
+            @include flex-direction(column);
+            @include justify-content(flex-start);
+
+            font-size: 1.1em;
+
+            position: relative;
+            top: 0;
+            right: 0;
+        }
+    }
+
+    &__list:hover > &__list-area {
+        @include display(block);
+
+        @include screens-phone-only {
+            @include display(flex);
+        }
+    }
+
+    &__list-item {
+        @include display(block);
+
+        background-color: $navigation-list-background-color;
+        color: $navigation-list-color;
+        font-size: 0.7em;
+        text-decoration: none;
+        white-space: nowrap;
+
+        padding: 6px 20px;
+    
+        &:hover {
+            background-color: $navigation-list-background-color-hover;
+            color: $navigation-list-color-hover;
+        }
+    }
+
+    &__list-divider {
+        @include display(block);
+
+        background-color: $navigation-list-divider;
+
+        height: 1px;
+        margin: 6px 20px;
+    }
+    
+}

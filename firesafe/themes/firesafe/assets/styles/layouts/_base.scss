@@ -1,0 +1,14 @@
+body {
+    background-color: $base-background-color;
+    color: $base-color;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+}
+
+a {
+    color: $link-color;
+
+    &:hover {
+        color: $link-color-hover;
+    }
+}

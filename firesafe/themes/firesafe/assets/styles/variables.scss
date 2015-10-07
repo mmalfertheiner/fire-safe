@@ -1,0 +1,50 @@
+/**********************************************************/
+/* Colors                                                 */
+/**********************************************************/
+
+$primary-black: black;
+$primary-grey: #f5f5f5;
+$primary-green: #CBCC4C;
+$primary-white: white;
+
+
+/**********************************************************/
+/* Layout                                                 */
+/**********************************************************/
+
+$base-background-color: $primary-green;
+$base-color: $primary-white;
+$base-font-family: "alwyn-new-web", sans-serif;
+$base-font-size: 16px;
+
+$link-color: $primary-white;
+$link-color-hover: #3C3C3C;
+
+$navigation-menu-background-color: $primary-green;
+$navigation-menu-background-color-hover: $primary-white;
+$navigation-menu-border-color: $primary-white;
+$navigation-menu-lines-color: $primary-white;
+$navigation-menu-lines-color-hover: $primary-green;
+
+$navigation-content-background-color: $primary-green;
+$navigation-content-background-color-mobile: $primary-white;
+
+$navigation-link-color: $primary-white;
+$navigation-link-color-mobile: $primary-green;
+$navigation-link-color-hover: $primary-white;
+$navigation-link-color-hover-mobile: $primary-black;
+$navigation-link-background-color-hover: $primary-green;
+$navigation-link-background-color-hover-mobile: $primary-grey;
+$navigation-link-border-color: $primary-white;
+$navigation-link-border-color-mobile: $primary-green;
+
+$navigation-list-color: $primary-green;
+$navigation-list-color-hover: $primary-black;
+$navigation-list-background-color: $primary-white;
+$navigation-list-background-color-hover: $primary-grey;
+$navigation-list-divider: $primary-green;
+
+$footer-color: #E2E3BA;
+$footer-color-hover: $primary-white;
+$footer-background-color: #BBBD21;
+$footer-background-color-hover: darken($footer-background-color, 10%)

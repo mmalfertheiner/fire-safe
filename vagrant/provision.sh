@@ -91,3 +91,11 @@ service nginx restart
 # Composer
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
+
+
+# Nodejs
+apt-get install -y nodejs nodejs-legacy npm
+
+# Sass
+gem install sass
+
