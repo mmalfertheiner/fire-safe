@@ -72,8 +72,7 @@ gulp.task('vendor-scripts', function() {
 
     gulp.src(files)
         .pipe(concat('vendor.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('themes/firesafe/assets/scripts/vendor'));
+        .pipe(gulp.dest('public/js'));
 
 });
 

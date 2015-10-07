@@ -12,34 +12,17 @@ description = "Default layout"
         <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}" />
         {% styles %}
         <link href="/public/css/app.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
     <body>
 
         <!-- Header -->
-        <header id="layout-header">
-
-            <!-- Nav -->
-            <nav id="layout-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="{{ 'home'|page }}">October Demo</a>
-                    </div>
-                    <div class="collapse navbar-collapse navbar-main-collapse">
-                        <ul class="nav navbar-nav">
-                            <li class="{% if this.page.id == 'home' %}active{% endif %}"><a href="{{ 'home'|page }}">Basic concepts</a></li>
-                            <li class="{% if this.page.id == 'ajax' %}active{% endif %}"><a href="{{ 'ajax'|page }}">AJAX framework</a></li>
-                            <li class="{% if this.page.id == 'plugins' %}active{% endif %}"><a href="{{ 'plugins'|page }}">Plugin components</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
+        <header class="navigation" role="banner">
+            {% partial "navigation" %}
         </header>
 
         <!-- Content -->
@@ -53,6 +36,7 @@ description = "Default layout"
         </footer>
 
         <!-- Scripts -->
+        <script src="/public/js/vendor.js"></script>
         <script src="/public/js/app.js"></script>
         {% framework extras %}
         {% scripts %}
