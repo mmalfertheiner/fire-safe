@@ -6,4 +6,37 @@
     margin-bottom: 30px;
 }
 
-.
+.firesafe-slogan {
+    $slogan-color: white;
+    $slogan-image: '/public/img/firesafe-header.jpg';
+    $slogan-background: #333;
+    $device-background-top: #333;
+    $device-background-bottom: #666;
+    $gradient-angle: 10deg;
+
+    @include background($slogan-background, url($slogan-image));
+    width: 100%;
+
+    &__content {
+        @include outer-container;
+        @include clearfix;
+
+        padding: 5em 2em 5em 2em;
+        text-align: center;
+
+        @include screens-tablet-up{
+            padding: 7em 4em 7em 4em;
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            p {
+                font-size: 1.5em;
+            }
+        }
+
+    }
+
+
+}

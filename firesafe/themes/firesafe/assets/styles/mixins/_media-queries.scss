@@ -1,0 +1,103 @@
+/**********************************************************/
+/* Responsive Media Queries                               */
+/**********************************************************/
+
+$breakpoint-phone: 768px !default;
+$breakpoint-tablet: 992px !default;
+$breakpoint-small-desktop: 1200px !default;
+
+// Up specific screen size
+@mixin screens-tablet-up {
+    @media (min-width: #{$breakpoint-phone}) {
+        @content;
+    }
+}
+
+@mixin screens-small-desktop-up {
+    @media (min-width: #{$breakpoint-tablet}) {
+        @content;
+    }
+}
+
+@mixin screens-large-desktop-up {
+    @media (min-width: #{$breakpoint-small-desktop}) {
+        @content;
+    }
+}
+
+// Down specific screen size
+@mixin screens-phone-down {
+    @media (max-width: #{$breakpoint-phone - 1px}) {
+        @content;
+    }
+}
+
+@mixin screens-tablet-down {
+    @media (max-width: #{$breakpoint-tablet - 1px}) {
+        @content;
+    }
+}
+
+@mixin screens-small-desktop-down {
+    @media (max-width: #{$breakpoint-small-desktop - 1px}) {
+        @content;
+    }
+}
+
+// Only specific screen size
+@mixin screens-phone-only {
+    @media (max-width: #{$breakpoint-phone - 1px}) {
+        @content;
+    }
+}
+
+@mixin screens-tablet-only {
+    @media (min-width: #{$breakpoint-phone}) and (max-width: #{$breakpoint-tablet - 1px}) {
+        @content;
+    }
+}
+
+@mixin screens-small-desktop-only {
+    @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-small-desktop - 1px}) {
+        @content;
+    }
+}
+
+@mixin screens-large-desktop-only {
+    @media (min-width: #{$breakpoint-small-desktop}) {
+        @content;
+    }
+}
+
+// Phone and Tablet
+@mixin screens-mobile {
+    @media (max-width: #{$breakpoint-tablet - 1px}) {
+        @content;
+    }
+}
+
+// Small Desktop and Large Desktop
+@mixin screens-desktop {
+    @media (min-width: #{$breakpoint-tablet}) {
+        @content;
+    }
+}
+
+
+/**********************************************************/
+/* Retina                                                 */
+/**********************************************************/
+
+// See: Bourbon - hidpi
+// See: Bourbon - retina-image
+
+
+/**********************************************************/
+/* Print                                                  */
+/**********************************************************/
+
+@mixin print {
+    @media print {
+        @content;
+    }
+}

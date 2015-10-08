@@ -14,6 +14,7 @@
 
 @import "../../../../node_modules/bourbon/app/assets/stylesheets/bourbon";
 @import "../../../../node_modules/bourbon-neat/app/assets/stylesheets/neat";
+@import "mixins/media-queries";
 
 
 /**********************************************************/
@@ -22,6 +23,7 @@
 
 @import "layouts/base";
 @import "layouts/boxes";
+@import "layouts/images";
 @import "layouts/navigation";
 
 
