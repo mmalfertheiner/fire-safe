@@ -1,0 +1,41 @@
+footer.footer {
+
+    $background-color: #161E73;
+    $color: white;
+
+    background-color: transparentize($background-color, 0.3);
+    color: $color;
+    min-height: 10em;
+    font-size: 0.8em;
+
+    .footer-content {
+        @include clearfix;
+        @include outer-container;
+
+        padding: 2em 0;
+    }
+
+
+    .footer-links {
+        @include clearfix;
+        @include display(flex);
+        @include justify-content(space-around);
+        @include align-items(stretch);
+        @include flex-wrap(wrap);
+        clear: both;
+        text-align: center;
+
+        ul {
+            @include flex(2 2 15em);
+            @include align-self(stretch);
+            display: block;
+            text-decoration: none;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            padding: 2px;
+        }
+    }
+}
