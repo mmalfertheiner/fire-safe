@@ -1,0 +1,9 @@
+.content-wrapper {
+    @include clearfix;
+    @include outer-container;
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.

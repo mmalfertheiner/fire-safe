@@ -47,6 +47,12 @@ gulp.task('scripts', function() {
 
 });
 
+/* Fonts */
+gulp.task('fonts', function() {
+    gulp.src('node_modules/font-awesome/fonts/*')
+        .pipe(gulp.dest('public/fonts'));
+})
+
 /* Vendor */
 gulp.task('vendor-styles', function() {
 
@@ -78,7 +84,7 @@ gulp.task('vendor-scripts', function() {
 
 
 /* Default task */
-gulp.task('default', [ 'vendor-styles', 'vendor-scripts', 'styles', 'scripts' ]);
+gulp.task('default', [ 'vendor-styles', 'vendor-scripts', 'fonts', 'styles', 'scripts' ]);
 
 /* Watch task */
 gulp.task('watch', [ 'default' ], function() {
