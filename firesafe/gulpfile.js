@@ -60,20 +60,17 @@ gulp.task('vendor-styles', function() {
         .pipe(rename('_normalize.scss'))
         .pipe(gulp.dest('themes/firesafe/assets/styles/vendor'));
 
-    /*gulp.src('node_modules/pickadate/lib/compressed/themes/default.css')
-        .pipe(rename('_pickadate.scss'))
-        .pipe(gulp.dest('resources/styles/vendor'));
-
-    gulp.src('node_modules/pickadate/lib/compressed/themes/default.date.css')
-        .pipe(rename('_pickadate.date.scss'))
-        .pipe(gulp.dest('resources/styles/vendor'));*/
+    gulp.src('node_modules/lightslider/dist/css/lightslider.css')
+        .pipe(rename('_lightslider.scss'))
+        .pipe(gulp.dest('themes/firesafe/assets/styles/vendor'));
 
 });
 
 gulp.task('vendor-scripts', function() {
 
     var files = [
-        'node_modules/jquery/dist/jquery.min.js'
+        'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/lightslider/dist/js/lightslider.min.js'
     ];
 
     gulp.src(files)
@@ -88,6 +85,6 @@ gulp.task('default', [ 'vendor-styles', 'vendor-scripts', 'fonts', 'styles', 'sc
 
 /* Watch task */
 gulp.task('watch', [ 'default' ], function() {
-    gulp.watch('themes/firesafe/assets/styles/**/*.scss', ['styles']);
+    gulp.watch(['themes/firesafe/assets/styles/**/*.scss', '!themes/firesafe/assets/styles/vendor/*.scss'], ['styles']);
     gulp.watch(['themes/firesafe/assets/scripts/**/*.js'], ['scripts']);
 });

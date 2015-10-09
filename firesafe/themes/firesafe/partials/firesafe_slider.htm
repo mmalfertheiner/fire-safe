@@ -1,0 +1,26 @@
+description = "Firesafe Slider"
+==
+
+<h1>Test</h1>
+
+<ul id="firesafe-slider" class="cs-hidden">
+    <li class="item-a">Hallo</li>
+    <li class="item-b">Test</li>
+    <li class="item-c">Wee</li>
+    <li class="item-d">Goo</li>
+    <li class="item-e">Ibsen</li>
+</ul>
+
+<script>
+
+    $(document).ready(function() {
+        $('#firesafe-slider').lightSlider({
+            autoWidth:true,
+            loop:true,
+            onSliderLoad: function() {
+                $('#firesafe-slider').removeClass('cs-hidden');
+            }
+        });
+    });
+
+</script>
