@@ -1,22 +1,29 @@
 description = "Firesafe Slider"
 ==
 
-<h1>Test</h1>
-
-<ul id="firesafe-slider" class="cs-hidden">
-    <li class="item-a">Hallo</li>
-    <li class="item-b">Test</li>
-    <li class="item-c">Wee</li>
-    <li class="item-d">Goo</li>
-    <li class="item-e">Ibsen</li>
-</ul>
+<div class="slider">
+    <ul id="firesafe-slider" class="cs-hidden firesafe-slider">
+        <li class="firesafe-slider__item" style="background-image: url('storage/app/media/slider-firesafe/firesafe-header.jpg'); color: black;">
+            <div class="firesafe-slider__content" style="padding-top: 5em;">
+                <h1>Fire Safe - Marvil Engineering</h1>
+                <p>This is a Test with longer text</p>
+            </div>
+        </li>
+        <li class="firesafe-slider__item">Test</li>
+        <li class="firesafe-slider__item">Wee</li>
+        <li class="firesafe-slider__item">Goo</li>
+        <li class="firesafe-slider__item">Ibsen</li>
+    </ul>
+</div>
 
 <script>
 
     $(document).ready(function() {
         $('#firesafe-slider').lightSlider({
-            autoWidth:true,
+            autoWidth:false,
             loop:true,
+            item:1,
+            auto:true,
             onSliderLoad: function() {
                 $('#firesafe-slider').removeClass('cs-hidden');
             }

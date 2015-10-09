@@ -1,13 +1,27 @@
-.item-a { width:300px; }
-.item-b { width:340px; }
-.item-c { width:290px; }
-.item-d { width:220px; }
-.item-e { width:350px; }
-@media (max-width: 768px) {
-    .item-a { width:100px; }
-    .item-b { width:240px; }
-    .item-c { width:190px; }
-    .item-d { width:120px; }
-    .item-e { width:250px; }
-}
+.firesafe-slider {
 
+    &__item {
+
+        background-color: #add8e6;
+        color: white;
+        height: 15em;
+
+        @include screens-tablet-up {
+            height: 22em;
+        }
+
+    }
+
+    &__content {
+        @include clearfix;
+        @include outer-container;
+
+        text-align: center;
+
+        @include screens-tablet-up {
+            font-size: 1.3em;
+            height: 20em;
+        }
+    }
+
+}
