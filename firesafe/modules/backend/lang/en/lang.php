@@ -130,6 +130,8 @@ return [
         'pagination' => 'Displayed records: :from-:to of :total',
         'prev_page' => 'Previous page',
         'next_page' => 'Next page',
+        'refresh' => 'Refresh',
+        'updating' => 'Updating...',
         'loading' => 'Loading...',
         'setup_title' => 'List Setup',
         'setup_help' => 'Use checkboxes to select columns you want to see in the list. You can change position of columns by dragging them up or down.',
@@ -138,7 +140,9 @@ return [
         'delete_selected' => 'Delete selected',
         'delete_selected_empty' => 'There are no selected records to delete.',
         'delete_selected_confirm' => 'Delete the selected records?',
-        'delete_selected_success' => 'Successfully deleted the selected records.'
+        'delete_selected_success' => 'Successfully deleted the selected records.',
+        'column_switch_true' => 'Yes',
+        'column_switch_false' => 'No'
     ],
     'fileupload' => [
         'attachment' => 'Attachment',
@@ -199,9 +203,13 @@ return [
         'select_none' => 'none',
         'select_placeholder' => 'please select',
         'insert_row' => 'Insert Row',
+        'insert_row_below' => 'Insert Row Below',
         'delete_row' => 'Delete Row',
         'concurrency_file_changed_title' => 'File was changed',
         'concurrency_file_changed_description' => "The file you're editing has been changed on disk by another user. You can either reload the file and lose your changes or override the file on the disk."
+    ],
+    'recordfinder' => [
+        'find_record' => 'Find Record'
     ],
     'relation' => [
         'missing_config' => "Relation behavior does not have any configuration for ':config'.",
@@ -318,5 +326,45 @@ return [
     ],
     'filter' => [
         'all' => 'all'
-    ]
+    ],
+    'import_export' => [
+        'upload_csv_file' => '1. Upload a CSV file',
+        'import_file' => 'Import file',
+        'first_row_contains_titles' => 'First row contains column titles',
+        'first_row_contains_titles_desc' => 'Leave this checked if the first row in the CSV is used as the column titles.',
+        'match_columns' => '2. Match the file columns to database fields',
+        'file_columns' => 'File columns',
+        'database_fields' => 'Database fields',
+        'set_import_options' => '3. Set import options',
+        'export_output_format' => '1. Export output format',
+        'file_format' => 'File format',
+        'standard_format' => 'Standard format',
+        'custom_format' => 'Custom format',
+        'delimiter_char' => 'Delimiter character',
+        'enclosure_char' => 'Enclosure character',
+        'escape_char' => 'Escape character',
+        'select_columns' => '2. Select columns to export',
+        'column' => 'Column',
+        'columns' => 'Columns',
+        'set_export_options' => '3. Set export options',
+        'show_ignored_columns' => 'Show ignored columns',
+        'auto_match_columns' => 'Auto match columns',
+        'created' => 'Created',
+        'updated' => 'Updated',
+        'skipped' => 'Skipped',
+        'warnings' => 'Warnings',
+        'errors' => 'Errors',
+        'skipped_rows' => 'Skipped Rows',
+        'import_progress' => 'Import progress',
+        'processing' => 'Processing',
+        'import_error' => 'Import error',
+        'upload_valid_csv' => 'Please upload a valid CSV file.',
+        'drop_column_here' => 'Drop column here...',
+        'ignore_this_column' => 'Ignore this column',
+        'processing_successful_line1' => 'File export process has completed successfully!',
+        'processing_successful_line2' => 'The browser should now redirect automatically to the file download.',
+        'export_progress' => 'Export progress',
+        'export_error' => 'Export error',
+        'column_preview' => 'Column preview',
+    ],
 ];

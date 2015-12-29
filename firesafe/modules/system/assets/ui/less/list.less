@@ -34,6 +34,10 @@ table.table.data {
 
     font-size: 12px;
 
+    &.no-offset-bottom {
+        margin-bottom: 0!important;
+    }
+
     thead {
         background: @color-list-head-bg;
 
@@ -80,7 +84,7 @@ table.table.data {
             color: @color-list-text;
             border-color: @color-list-grid;
 
-            a {
+            a:not(.btn) {
                 color: @color-list-text;
                 &:hover {
                     text-decoration: none;
@@ -131,7 +135,7 @@ table.table.data {
            background: @color-list-hover-bg !important;
            color: white;
 
-            a, span, i[class^="icon-"] {
+            a:not(.btn), span, i[class^="icon-"] {
                color: white;
             }
         }
@@ -207,6 +211,14 @@ table.table.data {
             padding-right: 0;
         }
 
+        td.column-compact {
+            padding: 0;
+        }
+
+        td.column-button {
+            padding: 5px;
+        }
+
         &.icons {
             td i[class^="icon-"] {
                 display: inline-block;
@@ -222,9 +234,11 @@ table.table.data {
             cursor: pointer;
             .user-select(none);
         }
+    }
 
-        td.column-compact {
-            padding: 0;
+    &.no-active-indicator tbody {
+        tr td:first-child {
+            border-left: none;
         }
     }
 

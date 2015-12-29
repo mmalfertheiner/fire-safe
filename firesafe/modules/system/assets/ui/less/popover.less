@@ -153,6 +153,10 @@ div.control-popover {
             font-size: 13px;
             font-weight: 100;
             margin: 10px 0 0 0;
+
+            &:empty {
+                display: none;
+            }
         }
 
         .close {
@@ -162,9 +166,29 @@ div.control-popover {
             top: 12px;
             color: @color-popover-head-text;
             outline: none;
+            .opacity(0.4);
 
             &:hover {
                 .opacity(1);
+            }
+        }
+
+        .inspector-move-to-container {
+            .opacity(0.4);
+            position: absolute;
+            top: 12px;
+            right: 26px;
+            float: none;
+            color: #ffffff;
+            cursor: pointer;
+
+            &:hover {
+                .opacity(1);
+                color: #ffffff;
+            }
+
+            &:before {
+                .transform(~'rotate(270deg)');
             }
         }
     }

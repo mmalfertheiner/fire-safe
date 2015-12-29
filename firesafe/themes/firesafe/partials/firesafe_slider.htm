@@ -2,7 +2,7 @@ description = "Firesafe Slider"
 ==
 
 <div class="slider">
-    <ul id="firesafe-slider" class="cs-hidden firesafe-slider">
+    <ul id="firesafe-slider" class="cs-hidden">
         <li class="firesafe-slider__item" style="background-image: url('storage/app/media/slider-firesafe/firesafe-header.jpg'); color: black;">
             <div class="firesafe-slider__content" style="padding-top: 5em;">
                 <h1>Fire Safe - Marvil Engineering</h1>
@@ -26,7 +26,8 @@ description = "Firesafe Slider"
             auto:true,
             onSliderLoad: function() {
                 $('#firesafe-slider').removeClass('cs-hidden');
-            }
+            },
+            addClass: 'firesafe-slider'
         });
     });
 

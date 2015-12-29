@@ -6,7 +6,7 @@ header.navigation {
     $large-screen: em(860) !default;
     $navigation-padding: 1em;
     $navigation-background: white;
-    $navigation-font-color: #161E73;
+    $navigation-font-color: #333333;
     $navigation-color: transparentize($navigation-font-color, 0.3);
     $navigation-color-hover: $navigation-font-color;
     $navigation-height: 60px;
@@ -19,6 +19,7 @@ header.navigation {
     $navigation-submenu-padding: 1em;
     $navigation-submenu-width: 12em;
     $horizontal-bar-mode: $large-screen;
+    $logo-color: #FF3333;
 
     background-color: $navigation-background;
     min-height: $navigation-height;
@@ -35,12 +36,23 @@ header.navigation {
     .logo {
         float: left;
         max-height: $navigation-height;
-        padding-left: $navigation-padding;
-        padding-right: 2em;
+        width: 100%;
+        text-align: center;
+        text-decoration: none;
+        color: $logo-color;
+        font-weight: bold;
+        line-height: $navigation-height;
+        font-size: 1.5em;
 
         img {
             max-height: $navigation-height;
             padding: 0.8em 0;
+        }
+
+        @include media ($horizontal-bar-mode) {
+            width: auto;
+            padding-left: $navigation-padding;
+            padding-right: 2em;
         }
     }
 
@@ -49,10 +61,10 @@ header.navigation {
     .navigation-menu-button {
         color: $navigation-color;
         display: block;
-        float: right;
-        line-height: $navigation-height;
+        float: left;
+        line-height: $navigation-height * 0.6;
         margin: 0;
-        padding-right: 1em;
+        padding-left: 0.8em;
         text-decoration: none;
         text-transform: uppercase;
 
@@ -103,7 +115,7 @@ header.navigation {
     ul li.nav-link {
         background: $navigation-background;
         display: block;
-        line-height: $navigation-height;
+        line-height: $navigation-height * 0.6;
         overflow: hidden;
         padding-right: 0.8em;
         text-align: right;
@@ -132,6 +144,12 @@ header.navigation {
             &:focus,
             &:hover {
                 color: $navigation-color-hover;
+            }
+        }
+
+        &-right{
+            @include media ($horizontal-bar-mode) {
+                float: right;
             }
         }
     }
@@ -259,15 +277,15 @@ header.navigation {
     // Elements on the far right
 
     .navigation-tools {
-        background: #505050;
-        clear: both;
         display: block;
-        height: $navigation-height;
+        height: $navigation-height * 0.6;
+        float: right;
 
         @include media($horizontal-bar-mode) {
             background: transparent;
             clear: none;
             float: right;
+            height: $navigation-height;
         }
     }
 }

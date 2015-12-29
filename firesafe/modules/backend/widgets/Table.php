@@ -1,5 +1,6 @@
 <?php namespace Backend\Widgets;
 
+use Lang;
 use Input;
 use Request;
 use Backend\Classes\WidgetBase;
@@ -110,6 +111,10 @@ class Table extends WidgetBase
         $this->vars['height'] = $this->getConfig('height', false) ?: 'false';
         $this->vars['dynamicHeight'] = $this->getConfig('dynamicHeight', false) ?: 'false';
 
+        $this->vars['btnAddRowLabel'] = Lang::get($this->getConfig('btnAddRowLabel', 'backend::lang.form.insert_row'));
+        $this->vars['btnAddRowBelowLabel'] = Lang::get($this->getConfig('btnAddRowBelowLabel', 'backend::lang.form.insert_row_below'));
+        $this->vars['btnDeleteRowLabel'] = Lang::get($this->getConfig('btnDeleteRowLabel', 'backend::lang.form.delete_row'));
+
         $isClientDataSource = $this->isClientDataSource();
 
         $this->vars['clientDataSourceClass'] = $isClientDataSource ? 'client' : 'server';
@@ -151,6 +156,14 @@ class Table extends WidgetBase
             if (isset($data['options'])) {
                 foreach ($data['options'] as &$option)
                     $option = trans($option);
+            }
+
+            if (isset($data['validation'])) {
+                foreach ($data['validation'] as &$validation) {
+                    if (isset($validation['message'])) {
+                        $validation['message'] = trans($validation['message']);
+                    }
+                }
             }
 
             $result[] = $data;

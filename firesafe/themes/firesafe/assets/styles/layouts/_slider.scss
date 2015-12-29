@@ -24,4 +24,15 @@
         }
     }
 
+    .lSPager.lSpg > li.active a, .lSPager.lSpg > li:hover a {
+        background-color: #FF3333;
+    }
+
+    .lSPager.lSpg > li a {
+        background-color: transparentize(#333, 0.4);
+    }
+}
+
+#firesafe-slider {
+    margin: 0px;
 }

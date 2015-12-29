@@ -912,15 +912,26 @@ class RelationController extends ControllerBehavior
         $sessionKey = $this->deferredBinding ? $this->relationGetSessionKey(true) : null;
 
         if ($this->viewMode == 'multi') {
+            $newModel = $this->relationModel;
 
-            if ($this->relationType == 'hasMany') {
-                $newModel = $this->relationObject->create($saveData, $sessionKey);
-            }
-            elseif ($this->relationType == 'belongsToMany') {
-                $newModel = $this->relationObject->create($saveData, [], $sessionKey);
+            /*
+             * In special cases, has one/many will require a foreign key set
+             * to pass any constraints imposed by the database. This emulates
+             * the "create" method on the relation object.
+             */
+            if (in_array($this->relationType, ['hasOne', 'hasMany'])) {
+                $newModel->setAttribute(
+                    $this->relationObject->getPlainForeignKey(),
+                    $this->relationObject->getParentKey()
+                );
             }
 
-            $newModel->commitDeferred($this->manageWidget->getSessionKey());
+            $modelsToSave = $this->prepareModelsToSave($newModel, $saveData);
+            foreach ($modelsToSave as $modelToSave) {
+                $modelToSave->save(null, $this->manageWidget->getSessionKey());
+            }
+
+            $this->relationObject->add($newModel, $sessionKey);
         }
         elseif ($this->viewMode == 'single') {
             $newModel = $this->viewModel;
@@ -961,8 +972,10 @@ class RelationController extends ControllerBehavior
 
         if ($this->viewMode == 'multi') {
             $model = $this->relationModel->find($this->manageId);
-            $model->fill($saveData);
-            $model->save(null, $this->manageWidget->getSessionKey());
+            $modelsToSave = $this->prepareModelsToSave($model, $saveData);
+            foreach ($modelsToSave as $modelToSave) {
+                $modelToSave->save(null, $this->manageWidget->getSessionKey());
+            }
         }
         elseif ($this->viewMode == 'single') {
             $this->viewWidget->setFormValues($saveData);

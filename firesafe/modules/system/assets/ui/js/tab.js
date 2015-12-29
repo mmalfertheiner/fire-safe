@@ -1,12 +1,12 @@
 /*
-=require ../vendor/bootstrap/js/transition.js
-=require ../vendor/bootstrap/js/tab.js
-=require toolbar.js
-*/
-/*
  * Tab control
  *
- * - Documentation: ../docs/tab.md
+ * Documentation: ../docs/tab.md
+ *
+ * Require:
+ *  - bootstrap/transition
+ *  - bootstrap/tab
+ *  - storm/toolbar
  */
 +function ($) { "use strict";
 
@@ -105,10 +105,12 @@
 
         var pane = $('> .tab-pane', this.$pagesContainer).eq(tabIndex).attr('id', targetId)
 
-        $(li).append($('<span class="tab-close"><i>&times;</i></span>').click(function(){
-            $(this).trigger('close.oc.tab')
-            return false
-        }))
+        if (!$('span.tab-close', li).length) {
+            $(li).append($('<span class="tab-close"><i>&times;</i></span>').click(function(){
+                $(this).trigger('close.oc.tab')
+                return false
+            }))
+        }
 
         pane.data('tab', li)
 
@@ -199,6 +201,8 @@
         this.$el.trigger(e)
         if (e.isDefaultPrevented())
             return
+
+        $.oc.foundation.controlUtils.disposeControls($pane.get(0))
 
         $pane.remove()
         $tab.remove()

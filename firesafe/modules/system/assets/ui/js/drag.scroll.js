@@ -1,9 +1,4 @@
 /*
-=require ../vendor/modernizr/modernizr.js
-=require ../vendor/mousewheel/mousewheel.js
-=require foundation.js
-*/
-/*
  * Allows to scroll an element content in the horizontal or horizontal directions. This script doesn't use
  * absolute positioning and rely on the scrollLeft/scrollTop DHTML properties. The element width should be
  * fixed with the CSS or JavaScript.
@@ -23,6 +18,7 @@
  *   depending on whether the scrollable area is in its start or end
  * - scrollMarkerContainer - if specified, specifies an element or element selector to inject scroll markers (span elements that con 
  *   contain the ellipses icon, indicating whether scrolling is possible)
+ * - noDragSupport - disables the drag support, leaving only the mouse wheel support
  * 
  * Methods:
  * - isStart - determines if the scrollable area is in its start (left or top)
@@ -30,8 +26,9 @@
  * - goToStart - moves the scrollable area to the start (left or top)
  * - goToElement - moves the scrollable area to an element
  *
- * Dependences:
- * - Mouse Wheel plugin (mousewheel.js)
+ * Require:
+ * - modernizr/modernizr
+ * - mousewheel/mousewheel
  */
 +function ($) { "use strict";
 
@@ -77,13 +74,15 @@
             return !scrollWheel(offset)
         })
 
-        $el.on('mousedown.dragScroll', function(event){
-            if (event.target && event.target.tagName === 'INPUT')
-                return // Don't prevent clicking inputs in the toolbar
+        if (!options.noDragSupport) {
+            $el.on('mousedown.dragScroll', function(event){
+                if (event.target && event.target.tagName === 'INPUT')
+                    return // Don't prevent clicking inputs in the toolbar
 
-            startDrag(event)
-            return false
-        })
+                startDrag(event)
+                return false
+            })
+        }
 
         $el.on('touchstart.dragScroll', function(event){
             var touchEvent = event.originalEvent;
@@ -223,6 +222,7 @@
         scrollClassContainer: false,
         scrollMarkerContainer: false,
         dragClass: 'drag',
+        noDragSupport: false,
         start: function() {},
         drag: function() {},
         stop: function() {}

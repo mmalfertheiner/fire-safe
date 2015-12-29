@@ -9,7 +9,6 @@
     $flex-box-background: lighten($light-gray, 10%);
     $flex-box-gutter: 1em;
     $flex-box-width: 18em;
-    $flex-box-color: transparentize($base-font-color, 0.3);
 
     @include clearfix;
     @include display(flex);
@@ -35,13 +34,13 @@
         }
 
         &__title {
-            color: $flex-box-color;
+            color: #FF3333;
             font-size: 1.2em;
             margin-bottom: 0.5em;
         }
 
         p {
-            color: transparentize($flex-box-color, 0.1);
+            color: $dark-gray;
             line-height: 1.5em;
             margin: auto;
         }

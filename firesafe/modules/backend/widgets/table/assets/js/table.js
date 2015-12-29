@@ -231,9 +231,9 @@
                 // When the pagination is enabled, or sorting is disabled,
                 // new records can only be added to the bottom of the
                 // table.
-                addBelowButton.textContent = 'Add row'
+                addBelowButton.textContent = this.options.btnAddRowLabel
             } else {
-                addBelowButton.textContent = 'Add row below'
+                addBelowButton.textContent = this.options.btnAddRowBelowLabel
 
                 var addAboveButton = document.createElement('a')
                 addAboveButton.setAttribute('class', 'btn table-icon add-table-row-above')
@@ -245,8 +245,10 @@
 
         if (this.options.deleting) {
             var deleteButton = document.createElement('a')
+
             deleteButton.setAttribute('class', 'btn table-icon delete-table-row')
-            deleteButton.textContent = 'Delete row'
+            deleteButton.textContent = this.options.btnDeleteRowLabel
+
             deleteButton.setAttribute('data-cmd', 'record-delete')
             this.toolbar.appendChild(deleteButton)
         }
@@ -353,9 +355,7 @@
 
                 dataContainer.setAttribute('type', 'hidden')
                 dataContainer.setAttribute('data-container', 'data-container')
-                dataContainer.value = records[i][columnName] !== undefined
-                    ? records[i][columnName]
-                    : ""
+                dataContainer.value = this.formatDataContainerValue(records[i][columnName])
 
                 cellContentContainer.setAttribute('class', 'content-container')
 
@@ -387,6 +387,18 @@
 
         // Update the pagination links
         this.navigation.buildPagination(totalCount)
+    }
+
+    Table.prototype.formatDataContainerValue = function(value) {
+        if (value === undefined) {
+            return ''
+        }
+
+        if (typeof value === 'boolean') {
+            return value ? 1 : ''
+        }
+
+        return value
     }
 
     Table.prototype.fetchRecords = function(onSuccess) {
@@ -844,6 +856,45 @@
         this.activeCell = null
     }
 
+    /*
+     * Updates row values in the table. 
+     * rowIndex is an integer value containing the row index on the current page.
+     * The rowValues should be a hash object containing only changed
+     * columns.
+     * Returns false if the row wasn't found. Otherwise returns true.
+     */
+    Table.prototype.setRowValues = function(rowIndex, rowValues) {
+        var row = this.findRowByIndex(rowIndex)
+
+        if (!row) {
+            return false
+        }
+
+        var dataUpdated = false
+
+        for (var i = 0, len = row.children.length; i < len; i++) {
+            var cell = row.children[i],
+                cellColumnName = this.getCellColumnName(cell)
+
+            for (var rowColumnName in rowValues) {
+                if (rowColumnName == cellColumnName) {
+                    this.setCellValue(cell, rowValues[rowColumnName], true)
+                    dataUpdated = true
+                }
+            }
+        }
+
+        if (dataUpdated) {
+            var originalEditedRowKey = this.editedRowKey
+
+            this.editedRowKey = this.getRowKey(row)
+            this.commitEditedRow()
+            this.editedRowKey = originalEditedRowKey
+        }
+
+        return true
+    }
+
     // HELPER METHODS
     // ============================
 
@@ -945,6 +996,10 @@
         return parseInt(cellElement.parentNode.getAttribute('data-row'))
     }
 
+    Table.prototype.getRowKey = function(rowElement) {
+        return parseInt(rowElement.getAttribute('data-row'))
+    }
+
     Table.prototype.findRowByKey = function(key) {
         return this.dataTable.querySelector('tbody tr[data-row="'+key+'"]')
     }
@@ -977,7 +1032,11 @@
         return result
     }
 
-    Table.prototype.setCellValue = function(cellElement, value) {
+    Table.prototype.getCellColumnName = function(cellElement) {
+        return cellElement.getAttribute('data-column')
+    }
+
+    Table.prototype.setCellValue = function(cellElement, value, suppressEvents) {
         var dataContainer = cellElement.querySelector('[data-container]')
 
         if (dataContainer.value != value) {
@@ -986,6 +1045,14 @@
             this.markCellRowDirty(cellElement)
 
             this.notifyRowProcessorsOnChange(cellElement)
+
+            if (suppressEvents === undefined || !suppressEvents) {
+                this.$el.trigger('oc.tableCellChanged', [
+                    this.getCellColumnName(cellElement),
+                    value,
+                    this.getCellRowIndex(cellElement)
+                ])
+            }
         }
     }
 
@@ -1001,7 +1068,10 @@
         toolbar: true,
         rowSorting: false,
         height: false,
-        dynamicHeight: false
+        dynamicHeight: false,
+        btnAddRowLabel: 'Add row',
+        btnAddRowBelowLabel: 'Add row below',
+        btnDeleteRowLabel: 'Delete row'
     }
 
     // TABLE PLUGIN DEFINITION
