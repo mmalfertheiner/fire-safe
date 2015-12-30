@@ -1,0 +1,13 @@
+label, input {
+    display: inline-block;
+}
+
+label {
+    width: 40%;
+    text-align: right;
+}
+
+label + input {
+    width: 56%;
+    margin: 0 0 0 4%;
+}

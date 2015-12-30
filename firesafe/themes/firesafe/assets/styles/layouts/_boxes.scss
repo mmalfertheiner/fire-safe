@@ -16,7 +16,6 @@
     @include align-items(stretch);
     @include flex-wrap(wrap);
     clear: both;
-    text-align: center;
 
     .box {
         @include flex(2 2 15em);
@@ -43,6 +42,10 @@
             color: $dark-gray;
             line-height: 1.5em;
             margin: auto;
+        }
+
+        &__centered {
+            text-align: center;
         }
     }
 
