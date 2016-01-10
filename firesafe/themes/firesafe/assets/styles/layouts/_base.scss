@@ -13,6 +13,10 @@ body{
     font-family: "SourceSansPro";
 }
 
+#layout-content{
+    padding-top: 60px;
+}
+
 .section {
     @include clearfix;
 

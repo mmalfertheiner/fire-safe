@@ -17,7 +17,7 @@ header.navigation {
     $navigation-search-border: 1px solid darken($navigation-background, 5);
     $navigation-active-link-color: transparentize(white, 0.5);
     $navigation-submenu-padding: 1em;
-    $navigation-submenu-width: 12em;
+    $navigation-submenu-width: 8em;
     $horizontal-bar-mode: $large-screen;
     $logo-color: #FF3333;
 
@@ -25,6 +25,7 @@ header.navigation {
     min-height: $navigation-height;
     width: 100%;
     z-index: 999;
+    position: fixed;
 
     .navigation-wrapper {
         @include clearfix;
@@ -230,6 +231,12 @@ header.navigation {
             left: -$navigation-submenu-padding;
             position: absolute;
             top: 1.5em;
+        }
+
+        &__right {
+            @include media($horizontal-bar-mode) {
+                left: -2em;
+            }
         }
 
         .submenu {
