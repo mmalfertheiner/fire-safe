@@ -1,6 +1,5 @@
 description = "Firesafe Slider"
 ==
-
 <div class="slider">
     <ul id="firesafe-slider" class="cs-hidden">
         <li class="firesafe-slider__item" style="background-image: url('storage/app/media/slider-firesafe/firesafe-header.jpg'); color: black;">
@@ -24,6 +23,10 @@ description = "Firesafe Slider"
             loop:true,
             item:1,
             auto:true,
+            pauseOnHover: true,
+            speed: 600,
+            slideMargin: 0,
+            pause: 4000,
             onSliderLoad: function() {
                 $('#firesafe-slider').removeClass('cs-hidden');
             },
