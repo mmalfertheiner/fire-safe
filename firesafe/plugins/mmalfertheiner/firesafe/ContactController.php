@@ -16,7 +16,7 @@ class ContactController extends Controller {
 
         $data = $request->all();
 
-        Mail::send('mmalfertheiner.firesafe::emails.contact', ['data' => $data], function($message) {
+        Mail::send('mmalfertheiner.firesafe::emails.contact', $data, function($message) {
 
             $message->to('martin.malfertheiner@gmail.com', 'Martin Malfertheiner');
             $message->subject('Firesafe Kontaktanfrage');

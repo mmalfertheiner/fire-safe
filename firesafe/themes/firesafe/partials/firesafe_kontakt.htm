@@ -30,8 +30,8 @@ description = "Firesafe Kontakt Form"
                             name="email" id="company_mail" type="text"></div>
                 </div>
                 <div class="box">
-                    <div class="form-control {{ errors.has('message') ? 'from-control-error' : ''}}"><label for="message">{{'Nachricht'|_}}: </label><textarea name="message" id="message" type="text" rows="10"
-                                                                              style="width: 100%"></textarea></div>
+                    <div class="form-control {{ errors.has('content') ? 'from-control-error' : ''}}"><label for="content">{{'Nachricht'|_}}: </label>
+                        <textarea name="content" id="content" type="text" rows="10" style="width: 100%"></textarea></div>
                     <button type="submit" class="btn-submit">{{'Abschicken'|_}}</button>
                 </div>
             </div>
