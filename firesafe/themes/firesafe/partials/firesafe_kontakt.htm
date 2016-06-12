@@ -7,23 +7,36 @@ description = "Firesafe Kontakt Form"
             <h1>Kontakt</h1>
         </div>
 
-        <form >
+        <form action="/postContact" method="post">
             <div class="boxes">
                 <div class="box">
-                    <div class="form-control"><label for="company_name">{{'Firma'|_}}: </label><input id="company_name" type="text"></div>
-                    <div class="form-control"><label for="company_address">{{'Addresse'|_}}: </label><input id="company_address" type="text"></div>
-                    <div class="form-control"><label for="company_tel">{{'Telefon'|_}}: </label><input id="company_tel" type="text"></div>
-                    <div class="form-control"><label for="company_fax">{{'Fax'|_}}: </label><input id="company_fax" type="text"></div>
-                    <div class="form-control"><label for="company_business">{{'Business'|_}}: </label><input id="company_business" type="text"></div>
-                    <div class="form-control"><label for="company_person">{{'Vor_Nachname'|_}}: </label><input id="company_person" type="text"></div>
-                    <div class="form-control"><label for="company_function">{{'Funktion'|_}}: </label><input id="company_function" type="text"></div>
-                    <div class="form-control"><label for="company_mail">{{'EMail'|_}}: </label><input id="company_mail" type="text"></div>
+                    <div class="form-control {{ errors.has('name') ? 'from-control-error' : ''}}"><label for="company_name">{{'Firma'|_}}: </label><input
+                            name="name" id="company_name" type="text"></div>
+                    <div class="form-control"><label for="company_address">{{'Addresse'|_}}: </label><input
+                            name="address" id="company_address" type="text"></div>
+                    <div class="form-control"><label for="company_tel">{{'Telefon'|_}}: </label><input
+                            name="tel" id="company_tel" type="text">
+                    </div>
+                    <div class="form-control"><label for="company_fax">{{'Fax'|_}}: </label><input
+                            name="fax" id="company_fax" type="text"></div>
+                    <div class="form-control"><label for="company_business">{{'Business'|_}}: </label><input
+                            name="business" id="company_business" type="text">
+                    </div>
+                    <div class="form-control"><label for="company_person">{{'Vor_Nachname'|_}}: </label><input
+                            name="person" id="company_person" type="text"></div>
+                    <div class="form-control"><label for="company_function">{{'Funktion'|_}}: </label><input
+                            name="function" id="company_function" type="text"></div>
+                    <div class="form-control {{ errors.has('email') ? 'from-control-error' : ''}}"><label for="company_mail">{{'EMail'|_}}: </label><input
+                            name="email" id="company_mail" type="text"></div>
                 </div>
                 <div class="box">
-                    <label for="message">{{'Nachricht'|_}}: </label><textarea id="message" type="text" rows="10" style="width: 100%"></textarea>
+                    <div class="form-control {{ errors.has('message') ? 'from-control-error' : ''}}"><label for="message">{{'Nachricht'|_}}: </label><textarea name="message" id="message" type="text" rows="10"
+                                                                              style="width: 100%"></textarea></div>
                     <button type="submit" class="btn-submit">{{'Abschicken'|_}}</button>
                 </div>
             </div>
         </form>
+
+
     </div>
 </div>

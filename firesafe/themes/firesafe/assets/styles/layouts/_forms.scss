@@ -17,6 +17,15 @@ input, textarea {
     border: 2px solid #add8e6;
 }
 
+.from-control-error {
+
+    color: red;
+
+    > input, textarea {
+        border-color: red;
+    }
+}
+
 .form-control {
     margin: 5px 0px;
 }
