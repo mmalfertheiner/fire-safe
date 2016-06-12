@@ -27,6 +27,10 @@ header.navigation {
     z-index: 999;
     position: fixed;
 
+    box-shadow: 0 1px 10px rgba(0,0,0,.1);
+    -webkit-box-shadow: 0 1px 10px rgba(0,0,0,.1);
+    -moz-box-shadow: 0 1px 10px rgba(0,0,0,.1);
+
     .navigation-wrapper {
         @include clearfix;
         @include outer-container;
@@ -62,12 +66,14 @@ header.navigation {
     .navigation-menu-button {
         color: $navigation-color;
         display: block;
-        float: left;
+        position: absolute;
+        top: 10px;
         line-height: $navigation-height * 0.6;
         margin: 0;
         padding-left: 0.8em;
         text-decoration: none;
         text-transform: uppercase;
+        font-weight: bold;
 
         @include media ($horizontal-bar-mode) {
             display: none;
@@ -123,6 +129,7 @@ header.navigation {
         width: 100%;
         z-index: 9999;
         border-bottom: 1px solid darken($navigation-background, 10);
+        font-weight: bold;
 
         @include media ($horizontal-bar-mode) {
             background: transparent;
@@ -286,11 +293,14 @@ header.navigation {
     .navigation-tools {
         display: block;
         height: $navigation-height * 0.6;
-        float: right;
+        position: absolute;
+        right: 10px;
+        top: 10px;
 
         @include media($horizontal-bar-mode) {
             background: transparent;
             clear: none;
+            position: initial;
             float: right;
             height: $navigation-height;
         }

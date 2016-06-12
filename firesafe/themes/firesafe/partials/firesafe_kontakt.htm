@@ -7,20 +7,21 @@ description = "Firesafe Kontakt Form"
             <h1>Kontakt</h1>
         </div>
 
-        <form>
+        <form >
             <div class="boxes">
                 <div class="box">
-                    <label for="company_name">Firma: </label><input id="company_name" type="text">
-                    <label for="company_address">Addresse: </label><input id="company_address" type="text">
-                    <label for="company_tel">Telefon: </label><input id="company_tel" type="text">
-                    <label for="company_fax">Fax: </label><input id="company_fax" type="text">
-                    <label for="company_business">Business: </label><input id="company_business" type="text">
-                    <label for="company_person">Vor- Nachname: </label><input id="company_person" type="text">
-                    <label for="company_function">Funktion: </label><input id="company_function" type="text">
-                    <label for="company_mail">E-Mail: </label><input id="company_mail" type="text">
+                    <div class="form-control"><label for="company_name">{{'Firma'|_}}: </label><input id="company_name" type="text"></div>
+                    <div class="form-control"><label for="company_address">{{'Addresse'|_}}: </label><input id="company_address" type="text"></div>
+                    <div class="form-control"><label for="company_tel">{{'Telefon'|_}}: </label><input id="company_tel" type="text"></div>
+                    <div class="form-control"><label for="company_fax">{{'Fax'|_}}: </label><input id="company_fax" type="text"></div>
+                    <div class="form-control"><label for="company_business">{{'Business'|_}}: </label><input id="company_business" type="text"></div>
+                    <div class="form-control"><label for="company_person">{{'Vor_Nachname'|_}}: </label><input id="company_person" type="text"></div>
+                    <div class="form-control"><label for="company_function">{{'Funktion'|_}}: </label><input id="company_function" type="text"></div>
+                    <div class="form-control"><label for="company_mail">{{'EMail'|_}}: </label><input id="company_mail" type="text"></div>
                 </div>
                 <div class="box">
-                    <label for="message">Nachricht: </label><textarea id="message" type="text" rows="10" style="width: 100%"></textarea>
+                    <label for="message">{{'Nachricht'|_}}: </label><textarea id="message" type="text" rows="10" style="width: 100%"></textarea>
+                    <button type="submit" class="btn-submit">{{'Abschicken'|_}}</button>
                 </div>
             </div>
         </form>

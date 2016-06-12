@@ -11,3 +11,28 @@ label + input {
     width: 56%;
     margin: 0 0 0 4%;
 }
+
+input, textarea {
+    min-height: 34px;
+    border: 2px solid #add8e6;
+}
+
+.form-control {
+    margin: 5px 0px;
+}
+
+.btn-submit {
+    height: 34px;
+    border: 2px solid #ff3333;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #ff3333;
+    background-color: white;
+
+    &:hover {
+
+        color: white;
+        background-color: #ff3333;
+
+    }
+}
